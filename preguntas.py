@@ -172,7 +172,7 @@ def pregunta_10():
     3   D                  1:2:3:5:5:7
     4   E  1:1:2:3:3:4:5:5:5:6:7:8:8:9
     """
-    c1 = sorted(set(tbl0['_c1']))
+    c1 = sorted(list(set(tbl0['_c1'])))
     c2 = []
     for letra,datos in tbl0.groupby('_c1')['_c2']:
         datosstr = list(map(str,sorted(list(datos))))
@@ -180,7 +180,6 @@ def pregunta_10():
         c2.append(datosstr)
     tabla = pd.DataFrame({'_c0':c1,'_c1':c2})
     return tabla
-
 
 def pregunta_11():
     """
