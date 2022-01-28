@@ -196,6 +196,7 @@ def pregunta_11():
     """
     tabla = tbl1.pivot_table(values="_c4",index="_c0",aggfunc=sorted)
     tabla['_c4'] = tabla['_c4'].map(",".join)
+    tabla = tabla.reset_index()
     return tabla
 
 def pregunta_12():
@@ -217,7 +218,9 @@ def pregunta_12():
     tbl2['_c5'] = tbl2['_c5a'] + ":" + tbl2['_c5b']
     tabla = tbl2.pivot_table(values="_c5",index="_c0",aggfunc=sorted)
     tabla['_c5'] = tabla['_c5'].map(",".join)
+    tabla = tabla.reset_index()
     return tabla
+
 
 def pregunta_13():
     """
