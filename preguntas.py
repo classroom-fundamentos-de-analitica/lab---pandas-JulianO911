@@ -176,10 +176,12 @@ def pregunta_10():
     tabla = tbl0.pivot_table(values="_c2",index="_c1",aggfunc=sorted)
     tabla['_c2'] = tabla['_c2'].map(":".join)
     tabla.index.names = ['_c0']
+    index = tabla.index
     tabla = tabla.rename(columns={'_c2':'_c1'})
+    tabla = tabla.set_index([pd.Index([0,1,2,3,4]),pd.Index(index)])
     return tabla
 
-
+print(pregunta_10())
 def pregunta_11():
     """
     Construya una tabla que contenga _c0 y una lista separada por ',' de los valores de
