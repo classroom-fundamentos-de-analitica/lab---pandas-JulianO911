@@ -179,7 +179,10 @@ def pregunta_10():
         datosstr = ":".join(datosstr)
         c2.append(datosstr)
     tabla = pd.DataFrame({'_c0':c1,'_c1':c2})
+    tabla = tabla.set_index('_c0')
     return tabla
+
+print(pregunta_10())
 
 def pregunta_11():
     """
