@@ -172,14 +172,11 @@ def pregunta_10():
     3   D                  1:2:3:5:5:7
     4   E  1:1:2:3:3:4:5:5:5:6:7:8:8:9
     """
-    c1 = sorted(list(set(tbl0['_c1'])))
-    c2 = []
-    for letra,datos in tbl0.groupby('_c1')['_c2']:
-        datosstr = list(map(str,sorted(list(datos))))
-        datosstr = ":".join(datosstr)
-        c2.append(datosstr)
-    tabla = pd.DataFrame({'_c0':c1,'_c1':c2})
-    tabla = tabla.set_index('_c0')
+    tbl0['_c2'] = tbl0['_c2'].map(str)
+    tabla = tbl0.pivot_table(values="_c2",index="_c1",aggfunc=sorted)
+    tabla['_c2'] = tabla['_c2'].map(":".join)
+    tabla.index.names = ['_c0']
+    tabla = tabla.rename(columns={'_c2':'_c1'})
     return tabla
 
 print(pregunta_10())
