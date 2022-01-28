@@ -176,9 +176,6 @@ def pregunta_10():
     tabla = tbl0.pivot_table(values="_c2",index="_c1",aggfunc=sorted)
     tabla['_c2'] = tabla['_c2'].map(":".join)
     tabla.index.names = ['_c0']
-    index = tabla.index
-    tabla = tabla.rename(columns={'_c2':'_c1'})
-    tabla = tabla.set_index([pd.Index([0,1,2,3,4]),pd.Index(index)])
     return tabla
 
 def pregunta_11():
