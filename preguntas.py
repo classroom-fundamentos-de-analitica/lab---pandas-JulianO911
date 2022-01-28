@@ -179,7 +179,6 @@ def pregunta_10():
     tabla = tabla.rename(columns={'_c2':'_c1'})
     return tabla
 
-print(pregunta_10())
 
 def pregunta_11():
     """
